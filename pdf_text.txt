@@ -1,0 +1,414 @@
+Kelompok  2
+Analisis Kebutuhan dan Perancangan ERD
+TRAVEL BERKELANA
+SISTEM ADMINISTRASI
+Mata Kuliah:
+Pemrograman Bisnis & Perancangan Sistem Administrasi
+Dosen Pengampu:
+Dwi Budi Santoso, S. Kom., M. Kom.
+Anggota Kelompok:
+1.Athifah Luthfia Hikmah 
+2.Diaz Purnama Shifa
+3.Hana Noor Istiqomah
+4.Shintya Bela Yuliyanti
+4.52.24.3.03
+4.52.24.3.07
+4.52.24.3.12
+4.52.24.3.26
+
+===PAGE===
+
+BERKELANA TRAVEL adalah sistem administrasi
+perjalanan yang membantu petugas loket mencatat data
+pelanggan dan rute, membuat pemesanan tiket, memilih  
+kursi , serta mencari kembali transaksi yang pernah
+dibuat. Sistem akan mengecek kursi yang masih kosong
+sesuai dengan rute dan jadwal keberangkatan, lalu
+menyimpan semua pemesanan di database.
+GAMBARAN UMUM
+PENGGUNA
+PETUGAS LOKET/ADMIN
+Mengelola data dan membuat
+pemesanan
+PEMANTAU
+PEMILIK USAHA
+Melihat ringkasan pada
+dashboard
+PENERIMA LAYANAN
+PELANGGAN
+Datanya dicatat, namun tidak
+memakai sistem langsung
+
+===PAGE===
+
+Masalah Dampak Solusi sistem
+Data pelanggan
+berulang
+Data pelanggan menjadi ganda dan
+sulit dikelola.
+Sistem menolak pelanggan
+dengan nama dan nomor telepon
+yang sama.
+Harga tidak sesuai Harga transaksi lama dapat
+berubah ketika tarif rute
+diperbarui.
+Sistem menyimpan harga yang
+berlaku saat pemesanan
+dilakukan.
+Kursi dipesan ganda Dua pelanggan dapat memperoleh
+kursi yang sama pada satu
+penerbangan.
+Sistem memeriksa ketersediaan
+kursi sebelum pemesanan
+dikonfirmasi.
+Transaksi susah dicari Petugas membutuhkan waktu
+untuk menemukan catatan
+transaksi lama.
+Sistem menyediakan fitur
+pencarian dan riwayat transaksi
+pelanggan.
+Latar Belakang Masalah
+
+===PAGE===
+
+PETUGAS LOKET/ADMIN
+Mengelola data pelanggan, rute, tarif,
+jadwal, kursi, dan transaksi.
+PEMILIK USAHA
+Melihat ringkasan pelanggan, rute, dan
+transaksi.
+PENGELOLA PROYEK  MAHASISWA
+Memakai struktur data dan dokumentasi.
+TUJUAN DAN PENGGUNA
+TUJUAN
+Mengenali masalah administrasi
+pada usaha travel.
+Membedakan kebutuhan
+fungsional dan nonfungsional.
+Menyusun aturan bisnis.
+Menentukan batasan sistem.
+Merancang ERD dan struktur data
+
+===PAGE===
+
+ALUR PROSES BISNIS
+1.Terima
+Permintaan
+Pemesanan
+2.Catat data
+pelanggan
+3.Periksa rute,
+tarif, tanggal,
+dan jam
+keberangkatan.
+4.Cek kursi yang
+masih tersedia
+dan catat
+pilihan
+5.Hitung total
+biaya sesuai
+jumlah kursi
+6.Catat transaksi,
+buat dan
+serahkan nota
+Manual
+MANUAL
+Pelanggan menyampaikan permintaan pemesanan kepada petugas. Petugas mencatat
+data pelanggan, memeriksa rute, harga, dan jadwal keberangkatan, lalu mengecek kursi
+yang tersedia. Setelah pelanggan memilih kursi, petugas menghitung total biaya, mencatat
+transaksi, dan membuat nota sebagai bukti pemesanan.
+
+===PAGE===
+
+ALUR PROSES BISNIS
+DENGAN SISTEM
+Admin memilih atau menambahkan data pelanggan, kemudian memilih rute dan
+jadwal keberangkatan. Sistem memeriksa ketersediaan kursi, lalu admin memilih
+kursi sesuai permintaan pelanggan. Sistem menghitung total biaya secara otomatis
+dan menyimpan pemesanan ke database. Admin juga dapat melihat riwayat
+pemesanan dan melakukan pembatalan jika diperlukan.
+Dengan Sistem
+PETUGAS LOKET/ADMIN
+1.Pilih atau
+tambah
+pelanggan
+PETUGAS LOKET/ADMIN
+2.Pilih rute dan,
+tanggal, dan
+jam
+keberangkatan
+PETUGAS LOKET/ADMIN
+3.Cek dan pilih
+kursi
+PETUGAS LOKET/ADMIN
+4.Sistem
+hitung total
+lalu simpan
+PETUGAS LOKET/ADMIN
+5.Lihat riwayat
+pemesanan
+PETUGAS LOKET/ADMIN
+6.Batalkan jika
+perlu
+
+===PAGE===
+
+ID Kebutuhan Kriteria penerimaan
+F01 Mengelola data pelanggan Petugas dapat menambah, melihat, dan mengelola data pelanggan.
+F02 Mencegah pendaftaran pelanggan ganda Pasangan nama dan nomor telepon yang sama ditolak sebagai pelangganbaru.
+F03 Mengelola rute dan tarif Petugas dapat menambahkan rute, menetapkan tarif, serta mengaktifkanatau menonaktifkan rute.
+F04 Mengelola data kursi
+Petugas dapat menambah, melihat, dan mengubah data kursi beserta
+statusnya. Sistem menampilkan nomor dan status kursi, seperti tersedia
+atau tidak aktif, serta memastikan nomor kursi tidak terdaftar ganda.
+F05 Membuat pemesanan tiket
+Ketika petugas memilih pelanggan Andi Pratama, rute Semarang–Solo,
+tanggal keberangkatan 20 Oktober 2026 pukul 08.00, dan kursi K2, sistem
+menyimpan data pemesanan tersebut serta menampilkan rincian transaksi
+berupa nama pelanggan, rute, tanggal dan jam keberangkatan, nomor kursi,
+jumlah tiket, dan total harga.
+KEBUTUHAN FUNGSIONAL
+Kebutuhan fungsional menyatakan pekerjaan yang harus dapat dilakukan oleh sistem.
+
+===PAGE===
+
+ID Kebutuhan Kriteria penerimaan
+F06 Memeriksa ketersediaan kursi
+Ketika petugas memilih rute Semarang–Solo pada 20 Oktober 2026 pukul
+08.00, sistem menampilkan kursi K1 yang sudah dipesan dengan warna
+abu-abu dan tidak dapat dipilih. Kursi K2 yang masih tersedia dapat dipilih
+untuk pemesanan.
+F07 Menghitung total harga
+Jumlah tiket diperoleh dari banyaknya kursi pada Detail Pemesanan. Total
+harga dihitung dari jumlah tiket dikalikan harga tiket saat pemesanan.
+Contoh: 
+ Jumlah Tiket = 2
+Harga per Tiket = Rp. 75.000
+Perhitungan = 2 tiket × Rp. 75.000 = Rp. 150.000.
+F08 Menyimpan transaksi dan detail kursi Data pemesanan serta pilihan kursi tersimpan dan nomor transaksi dapatditampilkan.
+KEBUTUHAN FUNGSIONAL
+Kebutuhan fungsional menyatakan pekerjaan yang harus dapat dilakukan oleh sistem.
+
+===PAGE===
+
+ID Kebutuhan Kriteria penerimaan
+F09 Mencari, melihat, dan membatalkantransaksi Petugas dapat menemukan transaksi, membuka detailnya, danmenjalankan pembatalan.
+F10 Menampilkan dashboard Dashboard menampilkan ringkasan jumlah pelanggan, rute, danpemesanan.
+KEBUTUHAN FUNGSIONAL
+Kebutuhan fungsional menyatakan pekerjaan yang harus dapat dilakukan oleh sistem.
+
+===PAGE===
+
+KEBUTUHAN NON FUNGSIONAL
+Sistem dapat dijalankan secara lokal melalui terminal di VS Code.
+Antarmuka dan pesan sistem menggunakan bahasa Indonesia.
+Data disimpan menggunakan SQLite pada file database di folder proyek.
+Form menggunakan pilihan yang sesuai untuk pelanggan, rute, tanggal, jam,
+dan kursi.
+Kesalahan input yang dapat diperkirakan ditampilkan melalui pesan yang
+mudah dipahami.
+Kode sistem dipisahkan menjadi file antarmuka dan file pengelolaan
+database agar lebih mudah diperiksa.
+Dependensi sistem dicatat dalam requirements.txt agar lingkungan proyek
+dapat dibuat ulang.
+
+===PAGE===
+
+ATURAN BISNIS
+Data Pelanggan Wajib Diisi
+Nama dan nomor telepon pelanggan wajib diisi, serta nomor telepon hanya boleh berisi angka. Jika kedua data valid, sistem menyimpan
+pelanggan; jika ada yang kosong atau nomor mengandung huruf, sistem menolak penyimpanan.
+B01
+Pelanggan Tidak Boleh Ganda
+Jika nama dan nomor telepon sama dengan pelanggan yang sudah terdaftar, sistem menolak penambahan data. Jika belum terdaftar, sistem
+menerima data pelanggan baru.
+B02
+Rute Harus Benar
+Jika kota asal dan tujuan berbeda serta tarif lebih dari nol, sistem menerima rute. Jika kota asal dan tujuan sama atau tarif nol, sistem menolak
+penyimpanan rute.
+B03
+Rute Tidak Dihapus
+Jika rute sudah digunakan dalam pemesanan, sistem tidak mengizinkan penghapusan permanen, tetapi admin dapat menonaktifkannya. Rute
+yang belum digunakan dapat dikelola sesuai kebutuhan.
+B04
+Data Harus Terdaftar
+Jika pelanggan sudah terdaftar dan rute berstatus aktif, sistem menerima pemesanan. Jika pelanggan belum terdaftar atau rute tidak aktif,
+sistem menolak pemesanan.
+B05
+
+===PAGE===
+
+ATURAN BISNIS
+B07
+Minimal satu kursi
+Setiap pemesanan harus memilih minimal satu kursi, yaitu K1–K8. Kursi yang dipilih tidak boleh sama dalam satu
+pemesanan.
+B08
+Kursi tidak boleh sama
+Kursi K1 yang sudah dipesan untuk rute Semarang–Solo pada 20 Oktober 2026 pukul 08.00 akan ditandai dengan warna
+abu-abu sehingga tidak bisa dipilih kembali untuk rute, tanggal, dan jam keberangkatan yang sama. Jika kursi K1 dicoba
+dipesan lagi pada jadwal tersebut, sistem akan menolak pemesanan kedua. Namun, kursi K1 tetap bisa dipesan untuk
+jadwal berbeda, misalnya pada 21 Oktober 2026 pukul 08.00.
+B09
+Harga saat pemesanan
+Jumlah tiket dihitung berdasarkan banyaknya kursi yang dipilih pada Detail Pemesanan. Total harga dihitung dari jumlah
+tiket dikalikan harga saat pemesanan. Contoh: 2 tiket × Rp75.000 = Rp150.000.
+B10
+Pembatalan
+Jika pelanggan membatalkan pemesanan, sistem menghapus data pemesanan beserta detail kursi sehingga kursi yang
+sebelumnya dipesan tersedia kembali. Pengembalian dana dilakukan di luar sistem. Jika pemesanan tidak ditemukan, sistem
+menolak proses pembatalan.
+Jam Keberangkatan
+Ketika petugas membuat pemesanan pada 20 Oktober 2026 pukul 09.00, sistem hanya mengizinkan pemilihan jadwal
+keberangkatan yang waktunya belum terlewati. Jika petugas mencoba memilih keberangkatan Semarang–Solo pada 20
+Oktober 2026 pukul 08.00, sistem akan menolak pemesanan karena waktu keberangkatan sudah berlalu. Namun,
+keberangkatan pada pukul 10.00 masih dapat dipilih.
+B06
+
+===PAGE===
+
+KODE
+PEMESANAN RUTE TANGGAL JAM KURSI KETERANGAN
+PSN001 SY001 20-10-2026 08.00 K1 Diterima
+PSN002 SY001 21-10-2026 08.00 K1 Diterima
+PSN003 SY001 20-10-2026 08.00 K1 Ditolak
+ATURAN PEMESANAN KURSI
+PSN001 dan PSN002 diterima karena tanggal keberangkatan berbeda.
+PSN003 ditolak karena kursi K1 sudah dipesan pada rute, tanggal, dan jam keberangkatan
+yang sama.
+
+===PAGE===
+
+RUANG LINGKUP SISTEM
+FITUR YANG TERSEDIA FITUR DI LUAR SISTEM
+✓ Dashboard ringkasan data
+✓ Pengelolaan pelanggan, termasuk
+pencegahan nama + nomor telepon ganda
+✓ Pengelolaan rute, tarif, dan status
+aktif/nonaktif
+✓
+✕ Pemesanan mandiri oleh pelanggan
+✕ Login dan pembagian hak akses
+✕ Pembayaran digital / integrasi rekening bank
+✕ Proses refund lewat sistem
+✕ Pengiriman tiket otomatis via WhatsApp atau
+email
+✕ Laporan pendapatan bulanan yang lengkap
+✕ Pengelolaan keberangkatan armada secara
+menyeluruh
+Pemesanan berdasarkan pelanggan, rute,
+tanggal, jam, dan kursi
+✓
+Denah kursi dan perhitungan total harga✓
+Riwayat pemesanan: simpan, cari, lihat
+detail, dan batalkan
+✓
+Penyimpanan data dengan SQLite✓
+Pengelolaan data kursi, meliputi penambahan,
+melihat, perubahan nomor, dan status
+aktif/nonaktif kursi.
+
+===PAGE===
+
+id_pelanggan
+ PK
+nama_pelanggan
+nomor_telepon
+id_rute
+ PK
+kode_rute
+kota_tujuan
+harga_tiket
+aktif
+id_pemesanan
+ PK
+id_pelanggan
+ FK
+id_rute
+ FK
+tanggal_keberangkatan
+jam_keberangkatan
+jumlah_pesan_tiket
+PELANGGAN
+Orang yang melakukan
+pemesanan tiket.
+RUTE
+Perjalanan yang ditawarkan
+beserta tarif dan statusnya.
+PEMESANAN
+Transaksi tiket yang
+menghubungkan pelanggan,
+rute, dan jadwal.
+ENTITAS DATABASE
+total_harga
+id_kursi
+ PK
+nomor_kursi
+status_aktif
+KURSI
+Kursi (K1–K8) yang dipilih pada
+setiap transaksi.
+id_detail_pemesanan
+ PK
+id_pemesanan
+ FK
+id_kursi
+DETAIL
+PEMESANAN
+FK
+kode_pelanggan
+ UQ
+kota_asal
+UQ
+kode_pemesanan
+ UQ
+harga_saat_pemesanan
+
+===PAGE===
+
+ERD SISTEM BERKELANA TRAVEL
+
+===PAGE===
+
+ENTITAS ID TEKNIS (PRIMARY KEY) CONTOH KODE BISNIS/LABEL
+PELANGGAN id_pelanggan P001
+RUTE id_rute SY001
+PEMESANAN id_pemesanan PSN001
+KURSI id_kursi K1 (nomor kursi)
+DETAIL_PEMESANAN id_detail_pemesanan -
+KODE BISNIS & ID TEKNIS
+Setiap ID teknis wajib unik dan tidak boleh sama.
+Kode bisnis pemesanan, pelanggan, dan rute juga tidak boleh duplikat.
+Kode bisnis digunakan untuk tampilan dan pencarian data, sedangkan ID teknis digunakan untuk
+menghubungkan tabel dalam database.
+
+===PAGE===
+
+TEKNOLOGI YANG DIGUNAKAN
+Python Bahasa pemrograman untuk membangun aplikasi.
+Streamlit Antarmuka aplikasi berbahasa Indonesia yang dipakai petugas loket.
+SQLite Database relasional lokal tanpa server terpisah; data tersimpan di file databasedalam folder proyek.
+VS Code Aplikasi dijalankan secara lokal melalui terminal di VS Code.
+
+===PAGE===
+
+PROGRES DAN TAHAP BERIKUTNYA
+TAHAP BERIKUTNYA
+Mengecek apakah aturan bisnis
+sudah diterapkan di kode
+Menguji pemesanan dan kursi
+memakai data contoh.
+Menambah fitur lain seperti login,
+pembayaran, dan laporan
+pendapatan.
+PROGRES PERANCANGAN
+Analisis integritas dan aturan
+bisnis.
+ERD lima entitas.
+Normalisasi sampai 3NF.
+Aturan integritas dan penghapus
+data.
+
+===PAGE===
+
+THANKYOU
